@@ -2,7 +2,7 @@
 
 Bootstrap Business website for software solutions, but could easily be changed to fit any business - Dark-themed design with modals and other features - From Brad Traversy's 'Bootstrap 5 From Scratch | Build 5 Modern Websites' course
 
-Check out the site :) - https://bs5-vera-software-solutions-website-fc.netlify.app/
+Check out the site :) - https://bs5-vera-software-solutions-website-f.netlify.app/
 
 <img src="./images/screen.png" />
 
