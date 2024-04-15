@@ -10,3 +10,24 @@ if (checkReplace !== null) {    // To make sure the class is there
     autoRun: true,
   });
 }
+
+// User Scroll For Navbar
+function userScroll() {
+    const navbar = document.querySelector('.navbar');
+  
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-dark');            // This is a bootstrap class
+        navbar.classList.add('border-bottom');      // This is a bootstrap class     
+        navbar.classList.add('border-secondary');   // This is a bootstrap class
+        navbar.classList.add('navbar-sticky');      // This is a custom class
+      } else {
+        navbar.classList.remove('bg-dark');
+        navbar.classList.remove('border-bottom');
+        navbar.classList.remove('border-secondary');
+        navbar.classList.remove('navbar-sticky');
+      }
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', userScroll);

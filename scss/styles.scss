@@ -24,7 +24,15 @@
     opacity: 1; /* Because by default the opcity is less than one */
 }
 
-  @media (max-width: 992px) {
+.navbar {
+    transition: all 0.5s ease-in-out;
+}
+  
+.navbar-sticky {
+    opacity: 0.8;
+}
+
+@media (max-width: 992px) {
     .xl-text {
       font-size: 50px;
     }
@@ -35,5 +43,4 @@
         url('../images/header-background.jpg') center center no-repeat;
     }
   
-
 }
