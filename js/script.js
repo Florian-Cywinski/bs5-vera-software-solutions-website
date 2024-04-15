@@ -28,6 +28,48 @@ function userScroll() {
         navbar.classList.remove('navbar-sticky');
       }
     });
-  }
+}
   
-  document.addEventListener('DOMContentLoaded', userScroll);
+document.addEventListener('DOMContentLoaded', userScroll);
+
+
+// Video Modal
+const videoBtn = document.querySelector('.video-btn');
+const videoModal = document.querySelector('#videoModal');
+const video = document.querySelector('#video');
+let videoSrc;
+
+if (videoBtn !== null) {    // To check whether the video button is there
+  videoBtn.addEventListener('click', () => {
+    videoSrc = videoBtn.getAttribute('data-bs-src');    // data-bs-src is the video link (see index.html)
+  });
+}
+
+if (videoModal !== null) {
+  // This executes when the .modal (modal window) gets opened  
+  videoModal.addEventListener('shown.bs.modal', () => { // shown.bs.modal is an event of the Bootstrap library
+    video.setAttribute( // src is the attribute to set with the value of videoSrc (video YT link) with some parameters (autoplay, another look and info)
+      'src',
+      videoSrc + '?autoplay=1;modestbranding=1;showInfo=0'
+    );
+  });
+  // This executes when the .modal (modal window) gets closed
+  videoModal.addEventListener('hide.bs.modal', () => {  // hide.bs.modal is an event of the Bootstrap library
+    video.setAttribute('src', videoSrc);    // src is the attribute to set with the value 
+  });
+}
+
+
+// To close the burger menu after clicking a link
+const navLinks = document.querySelectorAll(".nav-link");    // Get all the Navbar links
+
+function closeNavbar() {    // Function to close the collapsed menu
+  const navbarCollapse = document.querySelector(".navbar-collapse");
+  if (navbarCollapse.classList.contains("show")) {
+  navbarCollapse.classList.remove("show");
+  }
+}
+
+navLinks.forEach(function (link) {  // Add click event listeners to all the Navbar links
+  link.addEventListener("click", closeNavbar);
+});
