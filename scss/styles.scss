@@ -44,6 +44,81 @@
     width: 24px;
 }
 
+// Video Play Button
+.video-play-button {
+    position: absolute;
+    z-index: 10;
+    top: 50%;   /* To bring the outer border of the button to the middle (the button is not in the middle -> it's a bit more down) */
+    left: 50%;  /* To bring the outer border of the button to the middle (the button is not in the middle -> it's a bit more right) */
+    transform: translateX(-50%) translateY(-50%);   /* To fix it that the button is really in the middle */
+    width: 32px;
+    height: 44px;
+    border-radius: 50%;
+    display: block; /* Because the span element is by default inline */
+    box-sizing: content-box;
+    padding: 1.125rem 1.25rem 1.125rem 1.75rem;
+    cursor: pointer;
+    // background: red;    To see wheter the element is there
+}
+  
+.video-play-button:before { /* This is where the animation goes on */
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    display: block;
+    background: var(--bs-primary);  /* To have a bg color */
+    cursor: pointer;
+    animation: pulse-border 1500ms ease-in-out infinite;    /* To chose the @keyframes */
+}
+  
+.video-play-button:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: block;
+    background: var(--bs-primary);
+    cursor: pointer;
+    transition: all 200ms;  /* To have the animation smooth */
+}
+  
+.video-play-button span {   /* To create the triangle of the play button */
+    position: relative;
+    display: block;
+    z-index: 3;
+    top: 6px;   /* within the video play button */
+    left: 4px;
+    width: 0;   /* Just the borders are needed to draw the triangle */
+    height: 0;
+    // Draw triangle
+    border-left: 26px solid #fff;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+}
+
+@keyframes pulse-border {   /* This is also part of the pulsating (1500 ms / puls) video play button */
+    0% {
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);  /* The important part is scale(1) which is the initial state - translateX(-50%) translateY(-50%) is the same as above - translateZ(0) is just 0 */
+      opacity: 1;   /* To fully see the button initially */
+    }
+  
+    100% {
+      transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);    /* To scale the button up */
+      opacity: 0;   /* To have the button disappeared fianlly */
+    }
+}
+
 @media (max-width: 992px) {
     .xl-text {
       font-size: 50px;
@@ -53,6 +128,15 @@
       text-align: center;
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)),
         url('../images/header-background.jpg') center center no-repeat;
+    }
+
+    .video-points {
+        padding: 0 !important;
+        text-align: center;
+    }
+    
+    .video-points .col-lg-4 {
+        margin-bottom: 20px;
     }
   
 }
