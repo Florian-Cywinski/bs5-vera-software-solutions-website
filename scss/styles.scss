@@ -12,7 +12,17 @@
 .vertical-decoration {  /* Vertical decoration bar (orange) */
     top: 12%;
     width: 24px;
-  }
+}
+
+  .hr-heading { /* hr stands for horizontal rule (underline) - this is a custom class */
+    display: inline-block;
+    width: 3.5rem;
+    height: 0.125rem;
+    margin-top: 0.625rem;
+    border: none;
+    background-color: var(--bs-primary);
+    opacity: 1; /* Because by default the opcity is less than one */
+}
 
   @media (max-width: 992px) {
     .xl-text {
